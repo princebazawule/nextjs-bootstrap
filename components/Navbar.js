@@ -1,26 +1,42 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+import SvgPixld from "../components/icons/Pixld"
+
+const menu = [
+    { title: 'Clients', path: '/clients' },
+    { title: 'Work', path: '/work' },
+    { title: 'Connect', path: '/connect' },
+    { title: 'Blog', path: '/blog' },
+  ]
 
 const Navbar = () => {
+
+    const router = useRouter()
+    // console.log(router.pathname)
+
     return ( 
-        <header className="mb-auto">
-            <div>
+        <header className="px-5 py-3 w-100">
+            <div className='d-flex flex-row justify-content-between'>
             <Link href="/">
                 <a className="logo">
-                    <Image 
-                        src="/vercel.svg"
-                        alt="logo"
-                        width={72}
-                        height={16}
-                        css="logo-image"
-                    />
+                    <SvgPixld />
                 </a>
             </Link>
             <nav className="nav nav-masthead justify-content-center float-md-end">
-                <Link href="/clients"><a>Clients</a></Link>
-                <Link href="/work"><a>Work</a></Link>
-                <Link href="/connect"><a>Connect</a></Link>
-                <Link href="/blog"><a>Blog</a></Link>
+
+                {menu.map((item, index) => {
+                    return (
+                    <Link key={index} href={item.path}>
+                        <a
+                        data-cy="nav-item" 
+                        className={`mx-2 fw-bold ${router.pathname === item.path ? 'text-primary' : 'text-black'}`}
+                        >
+                        {item.title}
+                        </a>
+                    </Link>
+                    )
+                })}
             </nav>
             </div>
         </header>

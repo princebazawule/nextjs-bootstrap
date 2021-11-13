@@ -4,8 +4,8 @@ import Navbar from "./Navbar";
 
 const Layout = ({ children }) => {
     return ( 
-        <div className="d-flex min-vh-100 text-center text-white bg-dark">
-            <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <div className="d-flex h-100 text-center text-white">
+            <div className="cover-container d-flex w-100 h-100 mx-auto flex-column">
 
                 <Head>
                     <link rel="canonical" href="https://pixldinc.com" />
