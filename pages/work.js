@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { Fragment } from 'react'
 import Image from 'next/image'
-import styles from '../styles/Work.module.css'
+import styles from '../styles/Work.module.scss'
 
 export const getStaticProps = async () => {
     const response = await fetch('https://pixldinc.link/pixldcms/wp-json/acf/v3/work?page=1&per_page=8')

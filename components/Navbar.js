@@ -3,7 +3,8 @@ import Link from 'next/link'
 
 const Navbar = () => {
     return ( 
-        <nav>
+        <header className="mb-auto">
+            <div>
             <Link href="/">
                 <a className="logo">
                     <Image 
@@ -15,11 +16,14 @@ const Navbar = () => {
                     />
                 </a>
             </Link>
-            <Link href="/clients"><a>Clients</a></Link>
-            <Link href="/work"><a>Work</a></Link>
-            <Link href="/connect"><a>Connect</a></Link>
-            <Link href="/blogs"><a>Blog</a></Link>
-        </nav>
+            <nav className="nav nav-masthead justify-content-center float-md-end">
+                <Link href="/clients"><a>Clients</a></Link>
+                <Link href="/work"><a>Work</a></Link>
+                <Link href="/connect"><a>Connect</a></Link>
+                <Link href="/blog"><a>Blog</a></Link>
+            </nav>
+            </div>
+        </header>
      );
 }
  

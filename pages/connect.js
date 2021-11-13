@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import styles from '../styles/Connect.module.css'
+import styles from '../styles/Connect.module.scss'
 
 export const getStaticProps = async () => {
     const response = await fetch('https://pixldinc.link/pixldcms/wp-json/acf/v3/pages/22?_embed')

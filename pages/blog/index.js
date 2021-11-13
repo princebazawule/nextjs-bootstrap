@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import styles from '../../styles/Blogs.module.css'
+import styles from '../../styles/Blog.module.scss'
 
 
 export const getStaticProps = async () => {
@@ -19,11 +19,11 @@ export const getStaticProps = async () => {
     }
 }
 
-const Blogs = ({ posts }) => {
+const Blog = ({ posts }) => {
     return ( 
         <>
             <Head>
-                <title>PixlD - Blogs</title>
+                <title>PixlD - Blog</title>
                 <meta name="title" content="PixlD - Blog" />
                 <meta name="description" content="Our latest web, design & tech musings" />
                 
@@ -44,21 +44,19 @@ const Blogs = ({ posts }) => {
                 <div className='client-list'>
                     {posts && (posts.map((post) => {
                         return (
-                            <>
-                                <article
-                                    key={post.id}
-                                    className="blog-item">
-                                    <header>
-                                        <Link href={/blogs/+post.id}>
-                                            <a>
-                                                <h2 dangerouslySetInnerHTML ={{__html: post.title.rendered}}></h2>
-                                            </a>
-                                        </Link>
-                                    </header>
+                            <article
+                                key={post.id}
+                                className="blog-item">
+                                <header>
+                                    <Link href={`/blog/${post.slug}`}>
+                                        <a>
+                                            <h2 dangerouslySetInnerHTML ={{__html: post.title.rendered}}></h2>
+                                        </a>
+                                    </Link>
+                                </header>
 
-                                    <p dangerouslySetInnerHTML ={{__html: post.excerpt.rendered}}></p>
-                                </article>
-                            </>
+                                <p dangerouslySetInnerHTML ={{__html: post.excerpt.rendered}}></p>
+                            </article>
                         )
                     }))}
                 </div>
@@ -67,4 +65,4 @@ const Blogs = ({ posts }) => {
      );
 }
  
-export default Blogs;
+export default Blog;

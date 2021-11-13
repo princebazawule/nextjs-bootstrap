@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.scss'
 
 export const getStaticProps = async () => {
   const response = await fetch('https://pixldinc.link/pixldcms/wp-json/acf/v3/pages/22?_embed')
@@ -35,7 +35,7 @@ export default function Home({ items }) {
         <meta name="twitter:description" content="We are a boutique, web design & development firm based in sunny Barbados" />
       </Head>
       
-      <main className={styles.main}>
+      <main className='px-3'>
         <h1 className={styles.title}>who&apos;s PixlD?</h1>
 
         {items && ( 
@@ -47,11 +47,13 @@ export default function Home({ items }) {
         <div className="get-in-touch">
           <Link href="/connect">
             <a>
-              <button>get in touch</button>
+              <button type="button" className="btn btn-lg btn-secondary fw-bold border-white bg-white">get in touch</button>
             </a>
           </Link>
         </div>
       </main>
+
+      
     </>
   )
 }

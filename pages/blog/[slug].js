@@ -10,7 +10,7 @@ export const getStaticPaths = async () => {
     const paths = posts.map(post => {
         return {
             params: {
-                id: post.id.toString()
+                slug: post.slug
             }
         }
     })
@@ -22,28 +22,34 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async (context) => {
-    const id = context.params.id
-    const response = await fetch('https://pixldinc.link/pixldcms//wp-json/wp/v2/posts/'+id)
+    // console.log(context)
+    const slug = context.params.slug
+    const response = await fetch(`https://pixldinc.link/pixldcms/wp-json/wp/v2/posts/?slug=${slug}`)
     
     if(!response.ok) {
         console.log(`...no posts`)
         return
     }
     const data = await response.json()
-    // console.log(data)
+    const blog =data[0]
+
     return {
-      props: { blog: data }
+      props: { blog }
     }
 }
 
 
 const BlogDetails = ({ blog }) => {
-    return ( 
-        <div>
-            <h1 dangerouslySetInnerHTML ={{__html: blog.title.rendered}}></h1>
-            <div dangerouslySetInnerHTML ={{__html: blog.content.rendered}}></div>
-        </div>
-     );
+        return (
+            <>
+                {blog && ( 
+                <>
+                    <h1 dangerouslySetInnerHTML ={{__html: blog.title.rendered}}></h1>
+                    <div dangerouslySetInnerHTML ={{__html: blog.content.rendered}}></div>
+                </>
+                )}
+            </>
+        )
 }
  
 export default BlogDetails;

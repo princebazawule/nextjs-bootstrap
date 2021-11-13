@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Clients.module.css'
+import styles from '../styles/Clients.module.scss'
 
 export const getStaticProps = async () => {
     const response = await fetch('https://pixldinc.link/pixldcms/wp-json/acf/v3/clients?page=1&per_page=15')
