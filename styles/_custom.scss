@@ -1,0 +1,61 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/utilities";
+
+  $utilities: (
+    "img-bgcolor": (
+      property: background-image,
+      class: bgcover,
+      values: (
+        img1: url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1740&q=80')
+      )
+    ),
+    "width": (
+      property: width,
+      class: w,
+      responsive: true,
+      values: (
+        10: 10%,
+        25: 25%,
+        50: 50%,
+        75: 75%,
+        100: 100%,
+        auto: auto
+      )
+    ),
+    "max-width": (
+      property: max-width,
+      class: mw,
+      responsive: true,
+      values: (
+        25:25%,
+        50:50%,
+        75: 75%,
+        100: 100%,
+        none: none
+      ),
+    ),
+    "text-color": (
+      property: color,
+      class: text-color,
+      state: hover,
+      values: (
+        purple: $purple-500,
+        black: $gray-900,
+        gray: $gray-500,
+      )
+    ),
+    "background-color": (
+      property: background-color,
+      class: bg,
+      values: map-merge(
+        $utilities-bg-colors,
+        (
+          "transparent": transparent,
+          95: .95,
+        )
+      )
+    )
+  );
+
+  @import "bootstrap/scss/bootstrap.scss";
