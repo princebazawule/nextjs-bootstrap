@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import { Fragment } from 'react'
 import Image from 'next/image'
-import styles from '../styles/Work.module.scss'
 
 export const getStaticProps = async () => {
     const response = await fetch('https://pixldinc.link/pixldcms/wp-json/acf/v3/work?page=1&per_page=8')
@@ -40,14 +39,12 @@ const Work = ({ displayedPosts }) => {
                 <section className="py-5 text-center container">
                     <div className="row py-lg-5">
                     <div className="col-lg-6 col-md-8 mx-auto">
-                        <h1 className="fw-light text-black">Selected Work</h1>
-                        <p className="lead text-muted">
-                        This is a selection of of some of our previous work.
-                        </p>
+                        <h1 className="display-1 text-black">Selected Work</h1>
+                        <p className="display-6 text-muted">Some of our previous work.</p>
                         <p>
-                        <a href="#" className="btn btn-primary my-2 btn-lg">
+                        {/* <a href="#" className="btn btn-primary my-2 btn-lg">
                             View more work
-                        </a>
+                        </a> */}
                         </p>
                     </div>
                     </div>
@@ -56,37 +53,38 @@ const Work = ({ displayedPosts }) => {
                 <div className="album py-5 bg-light">
                     <div className="container">
                         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                        {displayedPosts && (displayedPosts.map((post, index) => {
-                            // console.log(post)
-                            return (
-                            <div key={post.id}>
-                                <div className="col">
-                                    <div className="card shadow-sm">
-                                        <Image
-                                            src={post.acf.splash.sizes.thumbnail} 
-                                            alt={post.acf.client}
-                                            width={500}
-                                            height={500}
-                                            layout="responsive"
-                                            quality={100}
-                                            className="bg-dark"
-                                        />
+                            {displayedPosts && (displayedPosts.map((post, index) => {
+                                // console.log(post)
+                                return (
+                                <div key={post.id}>
+                                    <div className="col mb-3 mb-lg-5">
+                                        <div className="card shadow-sm h-100">
+                                            <Image
+                                                src={post.acf.splash.sizes.thumbnail} 
+                                                alt={post.acf.client}
+                                                width={500}
+                                                height={500}
+                                                quality={100}
+                                                priority
+                                                className="card-img-top"
+                                                layout='responsive'
+                                            />
 
-                                        <div className="card-body">
-                                            <p className="card-text text-black fw-light fs-5">
-                                                {post.acf.client} <span>{post.acf.project_type}</span>
-                                            </p>
-                                            <div className="">
-                                                <div className="btn-group">
-                                                    <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => showWorkDetail(index)}>View</button>
+                                            <div className="card-body d-flex flex-column">
+                                                <p className="card-text text-black fw-light fs-4 py-4 lh-sm">
+                                                    {post.acf.client} <span>{post.acf.project_type}</span>
+                                                </p>
+                                                <div className="">
+                                                    <div className="btn-group">
+                                                        <button type="button" className="btn btn-lg btn-outline-secondary mb-3" onClick={() => showWorkDetail(index)}>View</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div> 
-                            )
-                        }))}
+                                </div> 
+                                )
+                            }))}
                         </div>
                     </div>
                 </div>

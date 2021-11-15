@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Clients.module.scss'
 
 export const getStaticProps = async () => {
     const response = await fetch('https://pixldinc.link/pixldcms/wp-json/acf/v3/clients?page=1&per_page=15')
@@ -48,12 +47,12 @@ const Clients = ({ displayedPosts }) => {
           <section className="py-5 text-center container">
             <div className="row py-lg-5">
               <div className="col-lg-6 col-md-8 mx-auto">
-                <h1 className="fw-light text-black">We&apos;ve worked with</h1>
-                <p className="lead text-muted">These are some amazing clients we have had the pleasure of working with over the years.</p>
+                <h1 className="display-1 text-black">We&apos;ve worked with</h1>
+                <p className="display-6 text-muted">some of our amazing clients.</p>
                 <p>
-                  <a href="#" className="btn btn-primary my-2 btn-lg">
+                  {/* <a href="#" className="btn btn-primary my-2 btn-lg">
                     View more clients
-                  </a>
+                  </a> */}
                 </p>
               </div>
             </div>
@@ -64,29 +63,28 @@ const Clients = ({ displayedPosts }) => {
               <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 {displayedPosts &&
                   displayedPosts.map((post) => {
-                    // console.log(post)
+                    console.log(post)
                     return (
-                      <div key={post.id}>
-                        <div className="col">
-                          <div className="card shadow-sm">
+                      <div key={post.id} className="col mb-3 mb-lg-5">
+                          <div className="card shadow-sm h-100">
                             <Image
-                              src={post.acf.logo.sizes.thumbnail}
+                              src={post.acf.logo.url}
                               alt={post.acf.client_name}
-                              width={100}
-                              height={50}
-                              layout="responsive"
+                              width={250}
+                              height={200}
                               quality={100}
-                              object-fit='scale-down'
-                              className="bg-dark"
+                              sizes={post.acf.logo.sizes}
+                              priority
+                              className="bg-dark p-5 card-img-top"
+                              layout='responsive'
                             />
 
-                            <div className="card-body">
+                            <div className="card-body d-flex flex-column">
                               <p className="card-text text-black fw-light fs-4 py-4 lh-sm">
                                 {post.acf.client_name}
                               </p>
                             </div>
                           </div>
-                        </div>
                       </div>
                     )
                   })}

@@ -45,8 +45,8 @@ const Connect = ({ items }) => {
                 <section className="py-5 text-center container">
                     <div className="row py-lg-5">
                         <div className="col-lg-6 col-md-8 mx-auto">
-                            <h1 className="fw-light text-black">Connect</h1>
-                            <p className="lead text-muted">Get in touch with use on the socials.</p>
+                            <h1 className="display-1 text-black">Connect</h1>
+                            <p className="display-6 text-muted">Get in touch on the socials.</p>
                         </div>
                     </div>
                 </section>
@@ -59,9 +59,9 @@ const Connect = ({ items }) => {
 
                                 {items && (
                                     <ul className='m-0 p-0 mb-5 pb-4'>
-                                        <li><a className='mb-2 fs-4 fw-light' href={items.twitter} target='_blank' rel='noreferrer' onClick={() => sendLinkClickEvent('twitter')} title={'twitter'}>twitter</a></li>
-                                        <li><a className='mb-2 fs-4 fw-light' href={items.facebook} target='_blank' rel='noreferrer' onClick={() => sendLinkClickEvent('facebook')} title={'facebook'}>facebook</a></li>
-                                        <li><a className='mb-2 fs-4 fw-light' href={items.linkedin} target='_blank' rel='noreferrer' onClick={() => sendLinkClickEvent('linkedin')} title={'linkedin'}>linkedin</a></li>
+                                        <li><a className='mb-2 fs-4 fw-light text-color-purple-hover' href={items.twitter} target='_blank' rel='noreferrer' onClick={() => sendLinkClickEvent('twitter')} title={'twitter'}>twitter</a></li>
+                                        <li><a className='mb-2 fs-4 fw-light text-color-purple-hover' href={items.facebook} target='_blank' rel='noreferrer' onClick={() => sendLinkClickEvent('facebook')} title={'facebook'}>facebook</a></li>
+                                        <li><a className='mb-2 fs-4 fw-light text-color-purple-hover' href={items.linkedin} target='_blank' rel='noreferrer' onClick={() => sendLinkClickEvent('linkedin')} title={'linkedin'}>linkedin</a></li>
                                     </ul>
                                 )}
                             </div>
@@ -71,8 +71,8 @@ const Connect = ({ items }) => {
                                 
                                 {items && (
                                     <ul className='m-0 p-0 mb-5 pb-4'>
-                                        <li><a className='mb-2 fs-4 fw-light' href={items.email} target='_blank' rel='noreferrer' onClick={() => sendLinkClickEvent('email')} title={'email'}>hello@pixldinc.com</a></li>
-                                        <li><a className='mb-2 fs-4 fw-light' href={items.skype} target='_blank' rel='noreferrer' onClick={() => sendLinkClickEvent('skype')} title={'skype'}>skype call</a></li>
+                                        <li><a className='mb-2 fs-4 fw-light text-color-purple-hover' href={items.email} target='_blank' rel='noreferrer' onClick={() => sendLinkClickEvent('email')} title={'email'}>hello@pixldinc.com</a></li>
+                                        <li><a className='mb-2 fs-4 fw-light text-color-purple-hover' href={items.skype} target='_blank' rel='noreferrer' onClick={() => sendLinkClickEvent('skype')} title={'skype'}>skype call</a></li>
                                     </ul>
                                 )}
                             </div>
