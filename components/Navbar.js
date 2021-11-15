@@ -30,7 +30,7 @@ const Navbar = () => {
                     <Link key={index} href={item.path}>
                         <a
                         data-cy="nav-item" 
-                        className={`mx-2 fw-bold ${router.pathname === item.path ? 'text-primary' : 'text-black'}`}
+                        className={`mx-2 fw-bold ${router.pathname === item.path ? 'text-color-purple' : 'text-color-black text-color-purple-hover'}`}
                         >
                         {item.title}
                         </a>
