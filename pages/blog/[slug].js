@@ -41,14 +41,28 @@ export const getStaticProps = async (context) => {
 
 const BlogDetails = ({ blog }) => {
         return (
-            <>
-                {blog && ( 
-                <>
-                    <h1 dangerouslySetInnerHTML ={{__html: blog.title.rendered}}></h1>
-                    <div dangerouslySetInnerHTML ={{__html: blog.content.rendered}}></div>
-                </>
-                )}
-            </>
+            <main className="container">
+              <div className="row g-5">
+                <div className="col-md-12">
+                  {blog && (
+                    <article className="blog-post">
+                      <h1
+                        className="display-4 fst-italic text-black mb-5"
+                        dangerouslySetInnerHTML={{
+                          __html: blog.title.rendered,
+                        }}
+                      ></h1>
+                      <div
+                        className="mb-5 pb-5 text-black text-start fs-5"
+                        dangerouslySetInnerHTML={{
+                          __html: blog.content.rendered,
+                        }}
+                      ></div>
+                    </article>
+                  )}
+                </div>
+              </div>
+            </main>
         )
 }
  
